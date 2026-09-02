@@ -1,0 +1,192 @@
+/* ===================== TOKENS (nosso "sistema de design") ===================== */
+:root {
+  --bg-base:  #c76b8f;
+  --bg-elevated: #c8326b;
+  --text-main: #f2e9e4;
+  --text-muted: #c9bfc4;
+  --accent-gold: #e0a458;
+  --accent-rose: #c76b8f;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Respeita quem prefere menos movimento na tela */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-main);
+}
+
+/* ===================== HERO ===================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  background: radial-gradient(circle at 50% 30%, var(--bg-elevated), var(--bg-base) 70%);
+}
+
+.hero-eyebrow {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 9vw, 5.5rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--accent-gold);
+}
+
+.name-line {
+  display: inline-block;
+  opacity: 0;
+  /* a animação de entrada é controlada pelo GSAP no script.js */
+}
+
+.hero-date {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ===================== GALERIA (uma foto por rolagem) ===================== */
+.gallery {
+  /* sem max-width aqui: cada cena ocupa a tela inteira */
+}
+
+.photo-scene {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.photo-placeholder {
+  width: min(85vw, 480px);
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(155deg, var(--bg-elevated), #3a2b45);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+  /* estado inicial: escondida, animada via GSAP no script.js */
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+/* quando você trocar por <img>, esse estilo cuida do encaixe */
+.photo-scene img {
+  width: min(85vw, 480px);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+/* ===================== CARTA ===================== */
+.letter {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 8rem;
+  text-align: center;
+}
+
+.letter-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: var(--text-main);
+  line-height: 1.8;
+}
+
+.letter-signature {
+  margin-top: 2rem;
+  color: var(--text-muted);
+}
+
+/* ===================== BOTÃO DE MÚSICA ===================== */
+.music-button {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent-gold);
+  color: var(--bg-base);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.music-button:hover,
+.music-button:focus-visible {
+  transform: scale(1.08);
+}
+
+.music-button:focus-visible {
+  outline: 2px solid var(--accent-rose);
+  outline-offset: 2px;
+}
+
+.music-button.tocando {
+  animation: pulsar 1.6s ease-in-out infinite;
+}
+
+@keyframes pulsar {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(224, 164, 88, 0.5); }
+  50% { box-shadow: 0 0 0 10px rgba(224, 164, 88, 0); }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para você</title>
+
+  <!-- Fontes: Fraunces (títulos) + Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===================== HERO ===================== -->
+   <section class="hero" id="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">feliz aniversário</p>
+      <h1 class="hero-title">
+        <span class="name-line" id="nome1">Minha Princesa</span>
+      </h1>
+      <p class="hero-date">03 de setembro de 2026</p>
+    </div>
+    <div class="scroll-hint">role para baixo ↓</div>
+  </section>
+
+  <!-- ===================== GALERIA DE FOTOS (uma por rolagem) ===================== -->
+  <!-- Cada .photo-scene é uma foto em tela cheia. Troque o .photo-placeholder por:
+       <img src="fotos/foto1.jpg" alt="descrição"> dentro da mesma div .photo-scene.
+       Duplique o bloco inteiro pra ter mais fotos (aqui já tem 10). -->
+  <section class="gallery" id="galeria">
+
+    <div class="photo-scene">
+      <img src="fotos/foto1.jpg">
+    </div>
+    <div class="photo-scene">
+      <img src="fotos/foto2.jpeg">
+    </div>
+    <div class="photo-scene">
+      <img src="fotos/foto3.jpeg">
+    </div>
+    <div class="photo-scene">
+      <img src="fotos/foto4.jpg">
+    </div>
+    <div class="photo-scene">
+      <img src="fotos/foto5.jpg">
+    </div>
+    <div class="photo-scene">
+     <img src="fotos/foto6.jpg">
+    </div>
+    <div class="photo-scene">
+      <img src="fotos/foto7.jpg">
+    </div>
+    <div class="photo-scene">
+      <img src="fotos/foto8.jpg">
+    </div>
+    <div class="photo-scene">
+      <img src="fotos/foto9.jpg">
+    </div>
+    <div class="photo-scene">
+      <img src="fotos/foto10.jpg">
+    </div>
+
+  </section>
+
+  <!-- ===================== MENSAGEM FINAL ===================== -->
+  <section class="letter" id="carta">
+    <p class="letter-text">
+      Feliz aniversário, meu amor! Você é a melhor pessoa desse mundo e merece tudo de melhor, estou muito feliz por estar com você nesse momento, eu sempre vou estar do seu lado, aproveite muito o seu dia, espero que você goste! Eu te amo pra sempre!
+    </p>
+    <p class="letter-signature">— Henrique</p>
+  </section>
+
+  <!-- ===================== PLAYER DE MÚSICA ===================== -->
+  <audio id="musica" src="musica.mp3" loop></audio>
+  <button id="botao-musica" class="music-button" aria-label="Tocar música">♪</button>
+
+  <!-- GSAP via CDN, para as animações de scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
